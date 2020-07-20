@@ -13,9 +13,7 @@ const port = process.env.PORT;
 const app = express();
 
 app.use(cors())
-app.options('/tasks', cors())
-app.options('/signIn', cors())
-app.options('/signUp', cors())
+app.options('*', cors())
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
