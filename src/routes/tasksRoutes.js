@@ -9,7 +9,7 @@ const router = express.Router();
 router.use(requireAuth);
 
 router.get('/tasks', async (req, res) => {
-  const tasks = await Task.find();
+  const tasks = await Task.find({ userId: req.user._id });
 
   res.status(200).send(tasks);
 });
